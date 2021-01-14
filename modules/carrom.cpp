@@ -47,7 +47,9 @@ public:
     }
     bool coinCheck()
     {
-        if(black==0 && red==0) return true;
-        else return false;
+        if (black == 0 && red == 0)
+            return true;
+        else
+            return false;
     }
 };
