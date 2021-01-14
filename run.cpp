@@ -23,7 +23,7 @@ int main()
         {
             score = gameplayers.gameresult();
             cout << score << " won the game."
-                 << " Final Score: " << finalplay1sc << '-' << finalplay2sc;
+                 << " Final Score: " << finalplay1Score << '-' << finalplay2Score;
             break;
         }
 
@@ -36,8 +36,8 @@ int main()
         cout << "5. Defunct Coin" << endl;
         cout << "6. None" << endl;
         cout << "Current Score" << endl
-             << "Player 1 Score: " << gameplayers.play1sc << endl
-             << "Player 2 Score: " << gameplayers.play2sc;
+             << "Player 1 Score: " << gameplayers.play1Score << endl
+             << "Player 2 Score: " << gameplayers.play2Score;
         cout << endl
              << "Type Your Option";
         cin >> option;

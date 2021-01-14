@@ -1,36 +1,36 @@
 #include <iostream>
 #include <string.h>
 
-int finalplay1sc = 0;
-int finalplay2sc = 0;
-int gameres = 0;
-int play1count = 0;
-int play2count = 0;
-int play1foul = 0;
-int play2foul = 0;
+int finalplay1Score = 0;
+int finalplay2Score = 0;
+int gameResult = 0;
+int play1Count = 0;
+int play2Count = 0;
+int play1Foul = 0;
+int play2Foul = 0;
 std::string outcome;
 class Play
 {
 public:
-    int play1sc;
-    int play2sc;
-    int play1his;
-    int play2his;
+    int play1Score;
+    int play2Score;
+    int play1History;
+    int play2History;
     int moves;
     int count;
     std::string outcome;
     Play()
     {
-        play1sc = 0;
-        play2sc = 0;
-        play1his = 0;
-        play2his = 0;
+        play1Score = 0;
+        play2Score = 0;
+        play1History = 0;
+        play2History = 0;
         moves = 0;
         count = 0;
     }
     bool checkplaysc()
     { //Check Player's Score
-        if (play1sc >= 5 || play2sc >= 5)
+        if (play1Score >= 5 || play2Score >= 5)
             return true;
 
         return false;
@@ -39,21 +39,21 @@ public:
     { //Update Player Score
         if (player == 1)
         {
-            play1sc = play1sc + score;
+            play1Score = play1Score + score;
         }
         else
-            play2sc = play2sc + score;
+            play2Score = play2Score + score;
     }
     void clearcount(int player) // Clearing "Does Not Pocket A Coin" Count
     {
         if (player == 1)
         {
-            play1count = 0;
+            play1Count = 0;
         }
         else
         {
 
-            play2count = 0;
+            play2Count = 0;
         }
     }
     int history(int player) // Keeping track of player history
@@ -61,27 +61,27 @@ public:
 
         if (player == 1)
         {
-            play1count = 0;
-            return play1his;
+            play1Count = 0;
+            return play1History;
         }
         else
         {
 
-            play2count = 0;
-            return play2his;
+            play2Count = 0;
+            return play2History;
         }
     }
 
     void updateplayerhistory(int player)
     { //Update Player History
         if (player == 1)
-            play1his = play1sc;
+            play1History = play1Score;
         else
-            play2his = play2sc;
+            play2History = play2Score;
     }
     bool gamewin()
     { //Checking Win Condition - For While Loop
-        if (gameres == 1)
+        if (gameResult == 1)
             return true;
         else
             return false;
@@ -89,23 +89,23 @@ public:
     std::string gameresult()
     { //Winner Declaration
 
-        if (play1sc > play2sc && ((play1sc - play2sc) >= 3))
+        if (play1Score > play2Score && ((play1Score - play2Score) >= 3))
         {
-            finalplay1sc = play1sc;
-            finalplay2sc = play2sc;
-            gameres = 1;
+            finalplay1Score = play1Score;
+            finalplay2Score = play2Score;
+            gameResult = 1;
             return "Player 1";
         }
-        else if ((play1sc < play2sc) && ((play2sc - play1sc) >= 3))
+        else if ((play1Score < play2Score) && ((play2Score - play1Score) >= 3))
         {
-            finalplay1sc = play1sc;
-            finalplay2sc = play2sc;
-            gameres = 1;
+            finalplay1Score = play1Score;
+            finalplay2Score = play2Score;
+            gameResult = 1;
             return "Player 2";
         }
-        finalplay1sc = play1sc;
-        finalplay2sc = play2sc;
-        gameres = 1;
+        finalplay1Score = play1Score;
+        finalplay2Score = play2Score;
+        gameResult = 1;
         return "Draw";
     }
 
@@ -113,45 +113,45 @@ public:
     { //When a player does not pocket a coin for 3 successive turns he/she loses a point
 
         if (player == 1)
-            play1count++;
+            play1Count++;
         else
-            play2count++;
+            play2Count++;
 
-        if (play1count >= 3)
+        if (play1Count >= 3)
         {
-            play1sc--;
-            play1count = 0;
+            play1Score--;
+            play1Count = 0;
         }
-        if (play2count >= 3)
+        if (play2Count >= 3)
         {
-            play2sc--;
-            play2count = 0;
+            play2Score--;
+            play2Count = 0;
         }
     }
 
     void playerfoulcount(int player)
     { //When a player fouls 3 times (a foul is a turn where a player loses, at least, 1 point),he/she loses an additional point
         if (player == 1)
-            play1foul++;
+            play1Foul++;
         else
-            play2foul++;
-        if (play1count >= 3)
+            play2Foul++;
+        if (play1Count >= 3)
         {
-            play1sc--;
-            play1foul = 0;
+            play1Score--;
+            play1Foul = 0;
         }
-        if (play2count >= 3)
+        if (play2Count >= 3)
         {
-            play2sc--;
-            play2foul = 0;
+            play2Score--;
+            play2Foul = 0;
         }
     }
 
     int scoreddifference()
     { //Leading Points Condition
-        if (play1sc > play2sc)
-            return play1sc - play2sc;
+        if (play1Score > play2Score)
+            return play1Score - play2Score;
         else
-            return play2sc - play1sc;
+            return play2Score - play1Score;
     }
 };
