@@ -4,13 +4,14 @@
 #include "modules/play.cpp" // included manually created headers
 #include "modules/carrom.cpp"
 using namespace std;
+// change the input.txt to input[1..3].txt for testing other testcases 
 #define OJ                            \
     freopen("input.txt", "r", stdin); \
     freopen("output.txt", "w", stdout);
 
 int main()
 {
-    // OJ;
+    OJ;
     string score; // final score
     int option; // command line option
     int result; 
