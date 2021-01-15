@@ -1,8 +1,8 @@
 class Carrom
 {
 public:
-    int black;
-    int red;
+    int black; // variable for no. of black coins 
+    int red; // variable for no. of red coin 
     Carrom()
     {
         black = 9;

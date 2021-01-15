@@ -29,14 +29,16 @@ public:
         count = 0;
     }
     bool checkplaysc()
-    { //Check Player's Score
+    { 
+        //Check Player's Score
         if (play1Score >= 5 || play2Score >= 5)
             return true;
 
         return false;
     }
     void updateplaysc(int player, int score)
-    { //Update Player Score
+    { 
+        //Update Player Score
         if (player == 1)
         {
             play1Score = play1Score + score;
@@ -44,8 +46,9 @@ public:
         else
             play2Score = play2Score + score;
     }
-    void clearcount(int player) // Clearing "Does Not Pocket A Coin" Count
+    void clearcount(int player) 
     {
+        // Clearing "Does Not Pocket A Coin" Count
         if (player == 1)
         {
             play1Count = 0;
@@ -80,14 +83,16 @@ public:
             play2History = play2Score;
     }
     bool gamewin()
-    { //Checking Win Condition - For While Loop
+    { 
+        //Checking Win Condition - For While Loop
         if (gameResult == 1)
             return true;
         else
             return false;
     }
     std::string gameresult()
-    { //Winner Declaration
+    { 
+        //Winner Declaration
 
         if (play1Score > play2Score && ((play1Score - play2Score) >= 3))
         {
@@ -110,7 +115,8 @@ public:
     }
 
     void playeremptymoves(int player)
-    { //When a player does not pocket a coin for 3 successive turns he/she loses a point
+    { 
+        //When a player does not pocket a coin for 3 successive turns he/she loses a point
 
         if (player == 1)
             play1Count++;
@@ -130,7 +136,8 @@ public:
     }
 
     void playerfoulcount(int player)
-    { //When a player fouls 3 times (a foul is a turn where a player loses, at least, 1 point),he/she loses an additional point
+    { 
+        //When a player fouls 3 times (a foul is a turn where a player loses, at least, 1 point),he/she loses an additional point
         if (player == 1)
             play1Foul++;
         else

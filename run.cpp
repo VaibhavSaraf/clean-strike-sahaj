@@ -1,6 +1,7 @@
+// Clean Strike Game
 #include <iostream>
-#include <string>
-#include "modules/play.cpp"
+#include <string> // include string library for string functions
+#include "modules/play.cpp" // included manually created headers
 #include "modules/carrom.cpp"
 using namespace std;
 #define OJ                            \
@@ -9,13 +10,13 @@ using namespace std;
 
 int main()
 {
-    string score;
-    int option;
-    int result;
-    cout << "Loading..." << endl;
+    // OJ;
+    string score; // final score
+    int option; // command line option
+    int result; 
     int player = 1;
-    Carrom cleanstrikeboard;
-    Play gameplayers;
+    Carrom cleanstrikeboard; // created objects of Carrom
+    Play gameplayers; // created object of Play
     while (gameplayers.gamewin() != true)
     {
         player = (player + 1) % 2;
@@ -117,8 +118,6 @@ int main()
             gameplayers.updateplayerhistory(player + 1);
         }
     }
-    // getch();
-    return 0;
-
+    
     return 0;
 }
